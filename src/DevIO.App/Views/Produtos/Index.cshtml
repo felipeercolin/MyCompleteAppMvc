@@ -1,0 +1,12 @@
+﻿@model IEnumerable<DevIO.App.ViewModels.ProdutoViewModel>
+
+@{
+    ViewData["Title"] = "Lista de Produtos";
+}
+
+<h1>@ViewData["Title"]</h1>
+<vc:Summary></vc:Summary>
+<p>
+    <a asp-action="Create" class="btn btn-group-sm btn-info">Novo Produto</a>
+</p>
+<partial name="_PartialListaProdutos"/>

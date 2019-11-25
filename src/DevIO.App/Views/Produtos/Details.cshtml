@@ -1,0 +1,12 @@
+﻿@model DevIO.App.ViewModels.ProdutoViewModel
+@{
+    ViewData["Title"] = $"Detalhes do Produto - {Model.Nome}";
+}
+
+<h1>@ViewData["Title"]</h1>
+<hr />
+<partial name="_PartialDetail"/>
+<div class="btn-group-sm">
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-dark" sp-action="Edit">Editar</a>
+    <a href="javascript:window.history.back();" class="btn btn-info">Voltar</a>
+</div>

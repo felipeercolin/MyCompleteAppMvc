@@ -1,0 +1,17 @@
+﻿@model DevIO.App.ViewModels.FornecedorViewModel
+
+@{
+    ViewData["Title"] = "Excluir Fornecedor";
+}
+
+<h1>@ViewData["Title"]</h1>
+<hr />
+<h3>Você tem certeza que deseja Excluir esse Fornecedor?</h3>
+<div>
+    <partial name="_PartialDetail" />
+    <form class="btn-group-sm" asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" />
+        <a asp-action="Index" class="btn btn-info">Voltar</a>
+    </form>
+</div>

@@ -1,0 +1,34 @@
+﻿@model DevIO.App.ViewModels.ProdutoViewModel
+
+@{
+    ViewData["Title"] = $"Editar o Produto {Model.Nome}";
+}
+
+<h1>@ViewData["Title"]</h1>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form enctype="multipart/form-data" asp-action="Edit">
+            <vc:Summary></vc:Summary>
+            <input type="hidden" asp-for="Id" />
+            <partial name="_PartialFormulario" />
+            <div class="form-group btn-group-sm">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+                <a href="javascript:window.history.back();" class="btn btn-info">Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(function () {
+            var selectorImgUpload = '#ImagemUpload';
+            $(document).on('change', selectorImgUpload, function() {
+                $('#img_nome').text(this.files[0].name);
+                $('#img_nome')[0].style.display = 'block';
+            });
+        });
+    </script>
+}

@@ -1,0 +1,58 @@
+﻿@model DevIO.App.ViewModels.FornecedorViewModel
+@{
+    ViewData["Title"] = "Editar Fornecedor";
+}
+<h1>@ViewData["Title"]</h1>
+<hr />
+
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Edit">
+
+            <vc:Summary></vc:Summary>
+
+            <input type="hidden" asp-for="Id" />
+            <partial name="_PartialFormulario" />
+
+            <div class="form-group btn-group-sm">
+                <input type="submit" value="Salvar" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<hr />
+<h4>Endereço</h4>
+<div id="EnderecoTarget">
+    <partial name="_PartialEndereco" />
+</div>
+
+<hr />
+<h4>Produtos</h4>
+<div>
+    <partial name="../Produtos/_PartialListaProdutos" model="@Model.Produtos" />
+</div>
+
+<div id="myModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div id="myModalContent"></div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .modal-footer {
+        padding-bottom: 0;
+    }
+</style>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(function () {
+            AjaxModal();
+            BuscaCep();
+        });
+    </script>
+}
